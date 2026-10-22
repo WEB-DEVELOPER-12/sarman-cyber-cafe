@@ -1,796 +1,778 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sarman Cyber Café | Wargadud</title>
+<meta name="theme-color" content="#071a33">
+<title>Sarman Cyber &amp; Stationeries | Wargadud, Mandera</title>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: #f4f7fb;
+  color: #222;
+  line-height: 1.6;
+}
+header {
+  background: linear-gradient(135deg, #071a33, #174a7e);
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+}
+.logo {
+  width: 85px;
+  height: 85px;
+  margin: 0 auto 12px;
+  background: white;
+  color: #0b1f3a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  border: 4px solid #dcecff;
+}
+header h1 { font-size: 30px; }
+header p { color: #dcecff; }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+.top-nav {
+  background: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 3px 12px #00000015;
+}
+.top-nav a {
+  text-decoration: none;
+  color: #0b1f3a;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 7px;
+}
+.top-nav a:hover {
+  background: #0b1f3a;
+  color: white;
 }
 
-html{
-  scroll-behavior:smooth;
+.bursary-announcement {
+  background: linear-gradient(135deg, #10294c, #174a7e);
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+.bursary-content {
+  max-width: 850px;
+  margin: auto;
+  padding: 22px;
+  border: 1px solid #f5c451a6;
+  border-radius: 15px;
+}
+.bursary-label {
+  display: inline-block;
+  background: #f5c451;
+  color: #10294c;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+}
+.bursary-content h2 { margin: 12px 0; }
+.bursary-content p { margin: 8px 0; }
+.bursary-price {
+  color: #f5c451;
+  font-size: 27px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.bursary-countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 18px 0;
+}
+.bursary-time {
+  background: #ffffff1c;
+  border-radius: 9px;
+  min-width: 65px;
+  padding: 9px;
+}
+.bursary-time strong {
+  display: block;
+  font-size: 22px;
+}
+.bursary-time span { font-size: 12px; }
+.bursary-whatsapp {
+  display: inline-block;
+  background: #f5c451;
+  color: #10294c;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+.bursary-note {
+  color: #e5effa;
+  font-size: 12px;
 }
 
-body{
-  background:#f4f7fb;
-  color:#222;
-  line-height:1.6;
+.dashboard-layout {
+  display: flex;
+  align-items: stretch;
+  min-height: 600px;
 }
-
-/* ================= HEADER ================= */
-
-header{
-  background:linear-gradient(135deg,#071a33,#174a7e);
-  color:white;
-  text-align:center;
-  padding:40px 20px;
+.dashboard-sidebar {
+  width: 265px;
+  flex-shrink: 0;
+  background: #071a33;
+  color: white;
+  padding: 20px 13px;
 }
-
-.logo{
-  width:110px;
-  height:110px;
-  margin:0 auto 15px;
-  background:white;
-  color:#0b1f3a;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:52px;
-  border:5px solid #dcecff;
-  box-shadow:0 8px 25px rgba(0,0,0,.3);
+.dashboard-brand {
+  padding: 8px 10px 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ffffff30;
 }
-
-header h1{
-  font-size:34px;
-  letter-spacing:1px;
+.dashboard-brand h2 {
+  font-size: 20px;
+  line-height: 1.4;
 }
-
-header p{
-  color:#dcecff;
+.dashboard-brand p {
+  color: #c8d9ed;
+  font-size: 12px;
 }
-
-/* ================= NAVIGATION ================= */
-
-nav{
-  background:white;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:8px;
-  padding:14px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 3px 12px rgba(0,0,0,.12);
+.dashboard-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-
-nav a{
-  text-decoration:none;
-  color:#0b1f3a;
-  font-weight:bold;
-  padding:10px 14px;
-  border-radius:8px;
-  transition:.3s;
+.dashboard-nav button {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 10px;
+  background: transparent;
+  color: #e5effa;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
 }
-
-nav a:hover{
-  background:#0b1f3a;
-  color:white;
+.dashboard-nav button:hover,
+.dashboard-nav button.active {
+  background: #174a7e;
+  color: white;
 }
-
-/* ================= HERO ================= */
-
-.hero{
-  background:linear-gradient(135deg,#0b1f3a,#174a7e);
-  color:white;
-  text-align:center;
-  padding:75px 20px;
+.dashboard-main {
+  flex: 1;
+  min-width: 0;
+  padding: 28px;
 }
-
-.hero h2{
-  font-size:38px;
-  margin-bottom:15px;
+.dashboard-menu-button {
+  display: none;
+  background: #174a7e;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  cursor: pointer;
 }
-
-.hero p{
-  max-width:700px;
-  margin:auto auto 30px;
-  font-size:18px;
-  color:#e5effa;
+.dashboard-heading {
+  color: #0b1f3a;
+  font-size: 29px;
+  margin-bottom: 7px;
 }
-
-.buttons{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:14px;
+.dashboard-intro {
+  color: #526174;
+  margin-bottom: 22px;
 }
-
-.btn{
-  display:inline-block;
-  padding:14px 22px;
-  background:white;
-  color:#0b1f3a;
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:9px;
-  transition:.3s;
+.dashboard-category-grid,
+.dashboard-service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 15px;
 }
-
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 7px 18px rgba(0,0,0,.25);
+.dashboard-category-card {
+  width: 100%;
+  text-align: left;
+  background: white;
+  border: 1px solid #e2eaf3;
+  border-radius: 12px;
+  padding: 19px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px #00000009;
+  transition: .2s;
 }
-
-/* ================= SECTIONS ================= */
-
-.section{
-  max-width:1050px;
-  margin:auto;
-  padding:60px 20px;
+.dashboard-category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px #00000014;
 }
-
-.section-title{
-  text-align:center;
-  color:#0b1f3a;
-  font-size:30px;
-  margin-bottom:35px;
+.category-icon {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 7px;
 }
-
-/* ================= SERVICES ================= */
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:22px;
+.dashboard-category-card h3 {
+  color: #174a7e;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 6px;
 }
-
-.card{
-  background:white;
-  text-align:center;
-  padding:30px 20px;
-  border-radius:15px;
-  box-shadow:0 5px 18px rgba(0,0,0,.08);
-  transition:.3s;
+.dashboard-category-card p {
+  color: #526174;
+  font-size: 13px;
 }
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 25px rgba(0,0,0,.14);
+.dashboard-service-card {
+  background: white;
+  padding: 19px;
+  border: 1px solid #e2eaf3;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px #00000009;
 }
-
-.card-icon{
-  font-size:45px;
-  margin-bottom:12px;
+.dashboard-service-card h3 {
+  color: #174a7e;
+  font-size: 17px;
+  margin-bottom: 7px;
 }
-
-.card h3{
-  color:#174a7e;
-  margin-bottom:10px;
+.dashboard-service-card p {
+  color: #526174;
+  font-size: 14px;
+  margin-bottom: 13px;
 }
-
-.card p{
-  color:#555;
+.service-price {
+  display: block;
+  color: #0b1f3a;
+  font-weight: bold;
+  margin-bottom: 12px;
 }
-
-.price-button{
-  display:inline-block;
-  margin-top:17px;
-  background:#0b1f3a;
-  color:white;
-  text-decoration:none;
-  padding:10px 16px;
-  border-radius:8px;
-  font-weight:bold;
+.service-whatsapp {
+  display: inline-block;
+  background: #087f5b;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 12px;
+  border-radius: 7px;
 }
-
-/* ================= PRICE SECTIONS ================= */
-
-.price-section{
-  background:#eef4fa;
+.service-whatsapp:hover { background: #066747; }
+.dashboard-back-button {
+  border: 0;
+  background: #e3edf8;
+  color: #0b1f3a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 0 18px;
 }
-
-.price-container{
-  max-width:850px;
-  margin:auto;
-  background:white;
-  padding:30px;
-  border-radius:16px;
-  box-shadow:0 6px 20px rgba(0,0,0,.1);
+.dashboard-info {
+  background: white;
+  border-left: 4px solid #174a7e;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 22px;
 }
+.dashboard-info h3 { color: #174a7e; }
+.dashboard-info p { color: #526174; font-size: 14px; }
 
-.price-container h3{
-  text-align:center;
-  color:#0b1f3a;
-  margin-bottom:20px;
-  font-size:24px;
+.section {
+  max-width: 1050px;
+  margin: auto;
+  padding: 45px 20px;
 }
-
-.price{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  padding:18px 8px;
-  border-bottom:1px solid #ddd;
+.section-title {
+  text-align: center;
+  color: #0b1f3a;
+  font-size: 28px;
+  margin-bottom: 25px;
 }
-
-.price:last-child{
-  border-bottom:none;
+.price-section { background: #eef4fa; }
+.price-container,
+.hours-box,
+.location-box,
+.contact-box {
+  max-width: 850px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px #0000000d;
 }
-
-.price strong{
-  color:#174a7e;
-  white-space:nowrap;
+.price-container h3 {
+  text-align: center;
+  color: #0b1f3a;
+  margin-bottom: 15px;
 }
-
-/* ================= HOURS ================= */
-
-.hours-box{
-  max-width:750px;
-  margin:auto;
-  background:white;
-  padding:28px;
-  border-radius:15px;
-  box-shadow:0 5px 18px rgba(0,0,0,.08);
+.price,
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 5px;
+  border-bottom: 1px solid #ddd;
 }
-
-.hours-row{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:17px 5px;
-  border-bottom:1px solid #ddd;
+.price:last-child,
+.hours-row:last-child { border-bottom: none; }
+.price strong { color: #174a7e; }
+.green { color: #16833b; font-weight: bold; }
+.orange { color: #b06a00; font-weight: bold; }
+.location-box,
+.contact-box { text-align: center; }
+.location-box h3 { color: #174a7e; }
+.contact-item {
+  margin: 16px 0;
+  font-size: 16px;
 }
-
-.hours-row:last-child{
-  border-bottom:none;
+.contact-item a {
+  color: #174a7e;
+  font-weight: bold;
+  text-decoration: none;
 }
-
-.green{
-  color:#16833b;
-  font-weight:bold;
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
 }
-
-.orange{
-  color:#b06a00;
-  font-weight:bold;
+.contact-btn {
+  display: inline-block;
+  background: #0b1f3a;
+  color: white;
+  text-decoration: none;
+  padding: 12px 17px;
+  border-radius: 8px;
+  font-weight: bold;
 }
-
-/* ================= LOCATION ================= */
-
-.location-box{
-  max-width:750px;
-  margin:auto;
-  background:white;
-  padding:30px;
-  text-align:center;
-  border-radius:15px;
-  box-shadow:0 5px 18px rgba(0,0,0,.08);
+footer {
+  background: #071a33;
+  color: white;
+  text-align: center;
+  padding: 27px 15px;
 }
+footer p { margin: 7px; }
 
-.location-box h3{
-  color:#174a7e;
-}
-
-/* ================= CONTACT ================= */
-
-.contact-box{
-  max-width:750px;
-  margin:auto;
-  background:white;
-  padding:30px 20px;
-  text-align:center;
-  border-radius:15px;
-  box-shadow:0 5px 18px rgba(0,0,0,.08);
-}
-
-.contact-item{
-  margin:18px 0;
-  font-size:17px;
-}
-
-.contact-item a{
-  color:#174a7e;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-.contact-buttons{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:25px;
-}
-
-.contact-btn{
-  background:#0b1f3a;
-  color:white;
-  text-decoration:none;
-  padding:13px 18px;
-  border-radius:8px;
-  font-weight:bold;
-  transition:.3s;
-}
-
-.contact-btn:hover{
-  background:#174a7e;
-  transform:translateY(-3px);
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  background:#071a33;
-  color:white;
-  text-align:center;
-  padding:30px 15px;
-}
-
-footer p{
-  margin:7px;
-}
-
-.made-by{
-  margin-top:18px;
-  padding-top:15px;
-  border-top:1px solid rgba(255,255,255,.2);
-  font-size:14px;
-  color:#dcecff;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:600px){
-
-  header h1{
-    font-size:28px;
+@media (max-width: 800px) {
+  .dashboard-layout { display: block; }
+  .dashboard-menu-button { display: inline-block; }
+  .dashboard-sidebar { display: none; width: 100%; }
+  .dashboard-sidebar.open { display: block; }
+  .dashboard-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   }
-
-  .hero h2{
-    font-size:28px;
-  }
-
-  .hero{
-    padding:55px 15px;
-  }
-
-  .section{
-    padding:45px 15px;
-  }
-
-  .hours-row{
-    font-size:14px;
-  }
-
-  nav a{
-    font-size:13px;
-    padding:9px 10px;
-  }
-
-  .price{
-    font-size:14px;
-  }
-
-  .price strong{
-    font-size:14px;
-  }
-
+  .dashboard-main { padding: 20px 15px; }
+  .dashboard-heading { font-size: 25px; }
+  header h1 { font-size: 25px; }
 }
-
+@media (max-width: 480px) {
+  .top-nav a { font-size: 12px; padding: 7px 8px; }
+  .bursary-content { padding: 16px 10px; }
+  .dashboard-category-grid,
+  .dashboard-service-list { grid-template-columns: 1fr; }
+  .price-container,
+  .hours-box,
+  .location-box,
+  .contact-box { padding: 17px; }
+  .price, .hours-row { font-size: 14px; }
+}
 </style>
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header>
-
-<div class="logo">
-🖥️
-</div>
-
-<h1>SARMAN CYBER CAFÉ</h1>
-
-<p>Your Trusted Cyber Café in Wargadud</p>
-
+  <div class="logo">🖥️</div>
+  <h1>SARMAN CYBER &amp; STATIONERIES</h1>
+  <p>PROFESSIONAL • FAST • RELIABLE</p>
 </header>
 
-
-<!-- ================= NAVIGATION ================= -->
-
-<nav>
-
-<a href="#home">Home</a>
-
-<a href="#services">Services</a>
-
-<a href="#printing">Printing Prices</a>
-
-<a href="#typing">Typing Prices</a>
-
-<a href="#hours">Opening Hours</a>
-
-<a href="#contact">Contact Us</a>
-
+<!-- Updated top navigation: only three links -->
+<nav class="top-nav" aria-label="Main navigation">
+  <a href="#dashboard">Dashboard</a>
+  <a href="#bursary-announcement">Bursary Form</a>
+  <a href="#contact">Contact Us</a>
 </nav>
 
+<section class="bursary-announcement" id="bursary-announcement">
+  <div class="bursary-content">
+    <span class="bursary-label" id="bursary-status">APPLICATION INFORMATION</span>
+    <h2>Mandera North Bursary</h2>
+    <p>Need help printing your bursary form? Visit Sarman Cyber &amp; Stationeries in Wargadud.</p>
+    <div class="bursary-price">KSh 30 per form</div>
+    <p><strong>Deadline: 26 October 2026, 5:00 PM</strong></p>
+    <div class="bursary-countdown" id="bursary-countdown" aria-live="polite">
+      <div class="bursary-time"><strong id="bursary-days">--</strong><span>Days</span></div>
+      <div class="bursary-time"><strong id="bursary-hours">--</strong><span>Hours</span></div>
+      <div class="bursary-time"><strong id="bursary-minutes">--</strong><span>Minutes</span></div>
+      <div class="bursary-time"><strong id="bursary-seconds">--</strong><span>Seconds</span></div>
+    </div>
+    <p id="bursary-deadline-message">Check the official bursary announcement for current eligibility and requirements.</p>
+    <a class="bursary-whatsapp"
+       href="https://wa.me/254791150077?text=Hello%20Sarman%20Cyber%20%26%20Stationeries!%20I%20am%20interested%20in%20Mandera%20North%20Bursary%20form%20printing%20at%20KSh%2030."
+       target="_blank" rel="noopener noreferrer">WhatsApp Us About Bursary Printing</a>
+    <p class="bursary-note">We provide printing assistance only. Bursary approval and eligibility are determined by the responsible authorities.</p>
+  </div>
+</section>
 
-<!-- ================= HOME ================= -->
-
-<section class="hero" id="home">
-
-<h2>Welcome to Sarman Cyber Café</h2>
-
-<p>
-Fast, reliable and professional cyber services
-in Mandera, Wargadud.
-</p>
-
-<div class="buttons">
-
-<a class="btn" href="#printing">
-🖨️ Printing Prices
-</a>
-
-<a class="btn" href="#typing">
-⌨️ Typing Prices
-</a>
-
-<a class="btn" href="#contact">
-📞 Contact Us
-</a>
-
-</div>
-
+<section class="dashboard-layout" id="dashboard">
+  <aside class="dashboard-sidebar" id="dashboard-sidebar">
+    <div class="dashboard-brand">
+      <h2>🖥️ Sarman Cyber</h2>
+      <p>&amp; Stationeries</p>
+    </div>
+    <nav class="dashboard-nav" aria-label="Service categories">
+      <button type="button" class="active" data-view="overview">🏠 Dashboard Overview</button>
+      <button type="button" data-view="government">🏛️ Government &amp; Public Services</button>
+      <button type="button" data-view="education">🎓 Education &amp; Career</button>
+      <button type="button" data-view="business">💼 Business Services</button>
+      <button type="button" data-view="documents">📄 Document Services</button>
+      <button type="button" data-view="graphics">🎨 Graphic &amp; Digital Services</button>
+      <button type="button" data-view="financial">💳 Financial &amp; Online Services</button>
+      <button type="button" data-view="ict">🖨️ Printing, Photo &amp; ICT</button>
+      <button type="button" data-view="stationery">📚 Stationery</button>
+    </nav>
+  </aside>
+  <main class="dashboard-main">
+    <button type="button" class="dashboard-menu-button" id="dashboard-menu-toggle"
+            aria-expanded="false" aria-controls="dashboard-sidebar">☰ Show / Hide Categories</button>
+    <div id="dashboard-content" aria-live="polite"></div>
+  </main>
 </section>
 
 
-<!-- ================= SERVICES ================= -->
-
-<section class="section" id="services">
-
-<h2 class="section-title">
-Our Services
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<div class="card-icon">🖨️</div>
-
-<h3>Printing</h3>
-
-<p>
-High-quality and affordable document printing.
-</p>
-
-<a class="price-button" href="#printing">
-View Prices
-</a>
-
-</div>
 
 
-<div class="card">
-
-<div class="card-icon">⌨️</div>
-
-<h3>Typing</h3>
-
-<p>
-Fast and professional typing for documents,
-letters and CVs.
-</p>
-
-<a class="price-button" href="#typing">
-View Prices
-</a>
-
-</div>
 
 
-<div class="card">
 
-<div class="card-icon">🌐</div>
-
-<h3>Internet</h3>
-
-<p>
-Reliable internet access for your online needs.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">📄</div>
-
-<h3>Document Services</h3>
-
-<p>
-Photocopying, scanning and other document services.
-</p>
-
-</div>
-
-</div>
-
+<section class="section" id="location">
+  <h2 class="section-title">📍 Our Location</h2>
+  <div class="location-box">
+    <h3>Sarman Cyber &amp; Stationeries</h3>
+    <p>Mandera, Wargadud, Kenya</p>
+  </div>
 </section>
-
-
-<!-- ================= PRINTING PRICES ================= -->
-
-<section class="section price-section" id="printing">
-
-<h2 class="section-title">
-🖨️ Printing Prices
-</h2>
-
-<div class="price-container">
-
-<h3>Our Printing Services</h3>
-
-<div class="price">
-
-<span>Black & White Printing</span>
-
-<strong>KSh 50 / page</strong>
-
-</div>
-
-<div class="price">
-
-<span>Colour Printing</span>
-
-<strong>KSh 50 / page</strong>
-
-</div>
-
-<div class="price">
-
-<span>Double-Sided Printing</span>
-
-<strong>KSh 50 / page</strong>
-
-</div>
-
-<div class="price">
-
-<span>Photocopy</span>
-
-<strong>KSh 30 / page</strong>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= TYPING PRICES ================= -->
-
-<section class="section" id="typing">
-
-<h2 class="section-title">
-⌨️ Typing Prices
-</h2>
-
-<div class="price-container">
-
-<h3>Our Typing Services</h3>
-
-<div class="price">
-
-<span>Normal Typing</span>
-
-<strong>KSh 20 / page</strong>
-
-</div>
-
-<div class="price">
-
-<span>CV Typing</span>
-
-<strong>KSh 100</strong>
-
-</div>
-
-<div class="price">
-
-<span>Application Letter</span>
-
-<strong>KSh 50</strong>
-
-</div>
-
-<div class="price">
-
-<span>Official Letter</span>
-
-<strong>KSh 50</strong>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= OPENING HOURS ================= -->
-
-<section class="section" id="hours">
-
-<h2 class="section-title">
-🕒 Opening Hours
-</h2>
-
-<div class="hours-box">
-
-<div class="hours-row">
-
-<span>Opening Hours</span>
-
-<strong class="green">
-24 Hours / 7 Days
-</strong>
-
-</div>
-
-<div class="hours-row">
-
-<span>Prayer Times</span>
-
-<strong class="orange">
-Temporarily Closed
-</strong>
-
-</div>
-
-<div class="hours-row">
-
-<span>Availability</span>
-
-<strong class="green">
-Open 24/7
-</strong>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= LOCATION ================= -->
-
-<section class="section">
-
-<h2 class="section-title">
-📍 Our Location
-</h2>
-
-<div class="location-box">
-
-<h3>Sarman Cyber Café</h3>
-
-<p>
-Mandera, Wargadud, Kenya
-</p>
-
-</div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
 
 <section class="section" id="contact">
-
-<h2 class="section-title">
-📞 Contact Us
-</h2>
-
-<div class="contact-box">
-
-<div class="contact-item">
-
-📱 WhatsApp:
-
-<a href="https://wa.me/254745869096">
-0745869096
-</a>
-
-</div>
-
-<div class="contact-item">
-
-📞 Call:
-
-<a href="tel:0791150077">
-0791150077
-</a>
-
-</div>
-
-<div class="contact-item">
-
-📞 Call:
-
-<a href="tel:0722480042">
-0722480042
-</a>
-
-</div>
-
-<div class="contact-buttons">
-
-<a class="contact-btn"
-href="https://wa.me/254745869096">
-💬 WhatsApp Us
-</a>
-
-<a class="contact-btn"
-href="tel:0791150077">
-📞 Call 0791 150 077
-</a>
-
-<a class="contact-btn"
-href="tel:0722480042">
-📞 Call 0722 480 042
-</a>
-
-</div>
-
-</div>
-
+  <h2 class="section-title">📞 Contact Us</h2>
+  <div class="contact-box">
+    <div class="contact-item">📱 WhatsApp:
+      <a href="https://wa.me/254791150077" target="_blank" rel="noopener noreferrer">0791150077</a>
+    </div>
+    <div class="contact-item">📞 Call:
+      <a href="tel:0745869096">0745869096</a>
+    </div>
+    <div class="contact-item">✉️ Email:
+      <a href="mailto:tullohaji42@gmail.com">tullohaji42@gmail.com</a>
+    </div>
+    <div class="contact-buttons">
+      <a class="contact-btn" href="https://wa.me/254791150077" target="_blank" rel="noopener noreferrer">💬 WhatsApp Us</a>
+      <a class="contact-btn" href="tel:0745869096">📞 Call Us</a>
+    </div>
+  </div>
 </section>
 
-
-<!-- ================= FOOTER ================= -->
-
 <footer>
+  <p><strong>🖥️ SARMAN CYBER &amp; STATIONERIES</strong></p>
+  <p>PROFESSIONAL • FAST • RELIABLE</p>
+  <p>📍 Mandera, Wargadud</p>
 
-<p>
-<strong>🖥️ SARMAN CYBER CAFÉ</strong>
-</p>
-
-<p>
-Professional • Reliable • Affordable
-</p>
-
-<p>
-📍 Mandera, Wargadud
-</p>
-
-<p>
-🕒 Open 24/7 — Closed only during prayer times
-</p>
-
-<p>
-© 2026 Sarman Cyber Café. All Rights Reserved.
-</p>
-
-<p class="made-by">
-Made by Bori Tullo
-</p>
-
+  <p>© 2026 Sarman Cyber &amp; Stationeries. All Rights Reserved.</p>
+  <p>Made by Bori Tullo</p>
 </footer>
 
+<script>
+(function () {
+  const deadline = new Date("2026-10-26T17:00:00+03:00").getTime();
+  const bursarySection = document.getElementById("bursary-announcement");
+  const bursaryNavLink = document.querySelector('.top-nav a[href="#bursary-announcement"]');
+
+  function updateBursaryCountdown() {
+    const remaining = deadline - Date.now();
+    const status = document.getElementById("bursary-status");
+    const message = document.getElementById("bursary-deadline-message");
+    const countdown = document.getElementById("bursary-countdown");
+
+    if (remaining <= 0) {
+      bursarySection.remove();
+      if (bursaryNavLink) bursaryNavLink.remove();
+      return;
+    }
+
+    status.textContent = "DEADLINE APPROACHING";
+    document.getElementById("bursary-days").textContent = Math.floor(remaining / 86400000);
+    document.getElementById("bursary-hours").textContent =
+      String(Math.floor((remaining % 86400000) / 3600000)).padStart(2, "0");
+    document.getElementById("bursary-minutes").textContent =
+      String(Math.floor((remaining % 3600000) / 60000)).padStart(2, "0");
+    document.getElementById("bursary-seconds").textContent =
+      String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0");
+  }
+
+  updateBursaryCountdown();
+  setInterval(updateBursaryCountdown, 1000);
+})();
+
+(function () {
+  const whatsappNumber = "254791150077";
+  const content = document.getElementById("dashboard-content");
+  const sidebar = document.getElementById("dashboard-sidebar");
+  const menuToggle = document.getElementById("dashboard-menu-toggle");
+  const categoryButtons = document.querySelectorAll(".dashboard-nav button");
+
+  const categories = [
+    {
+      id: "government",
+      title: "Government & Public Services",
+      icon: "🏛️",
+      description: "Get assistance with online public-service portals and application processes.",
+      services: [
+        ["eCitizen Assistance", "Help navigating eCitizen services and online applications."],
+        ["KRA Services", "Assistance accessing KRA services and tax-related online processes."],
+        ["NTSA Services", "Help accessing NTSA online services."],
+        ["HELB Applications", "Assistance with HELB portal access and application steps."],
+        ["SHA / NSSF Services", "Help accessing relevant membership portals and online services."],
+        ["Police Clearance Applications", "Guidance using the official application process."],
+        ["Birth Certificate Applications", "Help navigating the relevant application process."],
+        ["Passport Application Assistance", "Help accessing official passport application information."],
+        ["CR12 and Business Records", "Assistance with relevant online business-record requests."]
+      ]
+    },
+    {
+      id: "education",
+      title: "Education & Career",
+      icon: "🎓",
+      description: "Get help preparing education, scholarship, and career documents.",
+      services: [
+        ["School and College Applications", "Help preparing and submitting online education applications."],
+        ["Scholarship and Bursary Forms", "Assistance with online forms and document preparation."],
+        ["KUCCPS Assistance", "Help accessing KUCCPS information and application services."],
+        ["TVET Applications", "Help with online TVET application processes."],
+        ["Job Applications", "Assistance preparing documents for job applications."],
+        ["CV Typing", "Professional CV typing and formatting."],
+        ["Application Letters", "Typing and formatting application letters."],
+        ["Internship Applications", "Help preparing internship application documents."]
+      ]
+    },
+    {
+      id: "business",
+      title: "Business Services",
+      icon: "💼",
+      description: "Document preparation and online support for businesses.",
+      services: [
+        ["Business Registration Assistance", "Help navigating the relevant official online process."],
+        ["Business Profiles", "Typing and formatting business profile documents."],
+        ["Tender Applications", "Help preparing tender-related documents."],
+        ["Quotations and LPO Documents", "Typing and formatting quotations and LPO documents."],
+        ["Business Proposals", "Document preparation and formatting assistance."],
+        ["Business Plans", "Typing and formatting business-plan documents."],
+        ["Business Letters", "Preparation and formatting of business correspondence."]
+      ]
+    },
+    {
+      id: "documents",
+      title: "Document Services",
+      icon: "📄",
+      description: "Prepare, copy, format, and organise your documents.",
+      services: [
+        ["Document Typing", "Typing for general documents."],
+        ["Photocopying", "Photocopy service. KSh 30 per page."],
+        ["Document Scanning", "Ask us about scanning your documents."],
+        ["PDF Assistance", "Help with basic PDF document tasks."],
+        ["Document Editing", "Formatting and editing assistance."],
+        ["CV and Letter Formatting", "Make your documents neatly formatted."],
+        ["Official Letter Typing", "Typing official letters. KSh 50 per letter."],
+        ["Normal Typing", "Normal typing. KSh 20 per page."]
+      ]
+    },
+    {
+      id: "graphics",
+      title: "Graphic & Digital Services",
+      icon: "🎨",
+      description: "Ask about design and digital document services.",
+      services: [
+        ["Poster and Flyer Design", "Ask about creating a poster or flyer for your needs."],
+        ["Logo Design", "Ask about a logo design for your project or business."],
+        ["Document Design", "Formatting and layout assistance for documents."],
+        ["Photo Editing", "Ask about editing your photos."],
+        ["Digital Document Preparation", "Help preparing digital documents for use or printing."]
+      ]
+    },
+    {
+      id: "financial",
+      title: "Financial & Online Services",
+      icon: "💳",
+      description: "Enquire about available online assistance and payment services.",
+      services: [
+        ["M-PESA and Payment Assistance", "Contact us to confirm the specific service available."],
+        ["Utility Bill Assistance", "Ask about help with utility payment processes."],
+        ["Online Registration", "Help navigating online membership and registration forms."],
+        ["Insurance Application Assistance", "Help accessing relevant online application information."],
+        ["SACCO Online Services", "Ask about assistance with available SACCO online services."],
+        ["School Fee Payment Assistance", "Contact us to confirm the payment process available."]
+      ]
+    },
+    {
+      id: "ict",
+      title: "Printing, Photo & ICT",
+      icon: "🖨️",
+      description: "Printing, internet, photography, and computer-related enquiries.",
+      services: [
+        ["Black & White Printing", "Black and white document printing."],
+        ["Colour Printing", "Colour document printing."],
+        ["Double-Sided Printing", "Double-sided printing."],
+        ["Internet Browsing", "Ask us about internet access."],
+        ["Passport and ID Photos", "Enquire about passport or ID photo services."],
+        ["Photo Printing", "Ask about photo printing availability."],
+        ["Computer Troubleshooting", "Ask about help with computer problems."],
+        ["Software and Windows Assistance", "Contact us to confirm the available computer service."],
+        ["Data Transfer", "Enquire about transferring your files."],
+        ["Basic Computer Lessons", "Ask about basic computer learning assistance."]
+      ]
+    },
+    {
+      id: "stationery",
+      title: "Stationery",
+      icon: "📚",
+      description: "Contact us to ask which stationery items are currently available.",
+      services: [
+        ["Stationery Enquiry", "Ask about available stationery items, stock, and prices."]
+      ]
+    }
+  ];
+
+  function whatsappLink(serviceName, categoryName) {
+    const message =
+      "Hello Sarman Cyber & Stationeries! I am enquiring about " +
+      serviceName + " in " + categoryName +
+      ". Please confirm availability, requirements, and the price.";
+    return "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+  }
+
+  function setActiveButton(id) {
+    categoryButtons.forEach(function (button) {
+      button.classList.toggle("active", button.dataset.view === id);
+    });
+  }
+
+  function openCategory(category) {
+    setActiveButton(category.id);
+
+    const serviceCards = category.services.map(function (service) {
+      const priceMatch = service[1].match(/KSh [0-9,]+(?: per [a-z]+| per page| per letter)?\./);
+      const price = priceMatch ? priceMatch[0].replace(/\.$/, "") : "";
+
+      return `
+        <article class="dashboard-service-card">
+          <h3>${service[0]}</h3>
+          <p>${service[1]}</p>
+          ${price ? `<span class="service-price">${price}</span>` : ""}
+          <a class="service-whatsapp"
+             href="${whatsappLink(service[0], category.title)}"
+             target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a>
+        </article>
+      `;
+    }).join("");
+
+    content.innerHTML = `
+      <button type="button" class="dashboard-back-button" id="dashboard-back">← Back to Dashboard</button>
+      <h1 class="dashboard-heading">${category.icon} ${category.title}</h1>
+      <p class="dashboard-intro">${category.description}</p>
+      <div class="dashboard-service-list">${serviceCards}</div>
+      <div class="dashboard-info">
+        <h3>Need help?</h3>
+        <p>Send us an enquiry on WhatsApp. We will confirm the service, requirements, availability, and any price not listed on this website.</p>
+      </div>
+    `;
+
+    document.getElementById("dashboard-back").addEventListener("click", showOverview);
+    closeMobileMenu();
+  }
+
+  function showOverview() {
+    setActiveButton("overview");
+
+    const categoryCards = categories.map(function (category) {
+      return `
+        <button type="button" class="dashboard-category-card" data-category="${category.id}">
+          <span class="category-icon">${category.icon}</span>
+          <h3>${category.title}</h3>
+          <p>${category.description}</p>
+        </button>
+      `;
+    }).join("");
+
+    content.innerHTML = `
+      <h1 class="dashboard-heading">Welcome to Your Service Dashboard</h1>
+      <p class="dashboard-intro">Sarman Cyber &amp; Stationeries — choose a category to explore services and contact us.</p>
+      <div class="dashboard-category-grid">${categoryCards}</div>
+      <div class="dashboard-info">
+        <h3>📍 Visit Us</h3>
+        <p>Wargadud, Mandera, Kenya</p>
+        <p>WhatsApp: 0791150077</p>
+        <p>Calling: 0745869096</p>
+        <p>We will confirm availability and any unlisted prices before you proceed.</p>
+      </div>
+    `;
+
+    content.querySelectorAll("[data-category]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const category = categories.find(function (item) {
+          return item.id === button.dataset.category;
+        });
+        if (category) openCategory(category);
+      });
+    });
+
+    closeMobileMenu();
+  }
+
+  function closeMobileMenu() {
+    if (window.innerWidth <= 800) {
+      sidebar.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  categoryButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const id = button.dataset.view;
+
+      if (id === "overview") {
+        showOverview();
+        return;
+      }
+
+      const category = categories.find(function (item) {
+        return item.id === id;
+      });
+
+      if (category) openCategory(category);
+    });
+  });
+
+  menuToggle.addEventListener("click", function () {
+    const isOpen = sidebar.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  showOverview();
+})();
+</script>
 </body>
 </html>
-```
