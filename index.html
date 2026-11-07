@@ -391,6 +391,48 @@ footer p { margin: 7px; }
   .contact-box { padding: 17px; }
   .price, .hours-row { font-size: 14px; }
 }
+
+.service-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border: 2px solid #dce8f7;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 15px #00000009;
+}
+.service-search:focus-within {
+  border-color: #0756c9;
+  box-shadow: 0 0 0 3px #0756c922;
+}
+.service-search span { font-size: 21px; }
+.service-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #172b4d;
+  font-size: 15px;
+}
+.search-category {
+  display: inline-block;
+  color: #0756c9;
+  background: #eaf3ff;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.search-empty {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  color: #64748b;
+}
 </style>
 </head>
 <body>
@@ -450,6 +492,12 @@ footer p { margin: 7px; }
   <main class="dashboard-main">
     <button type="button" class="dashboard-menu-button" id="dashboard-menu-toggle"
             aria-expanded="false" aria-controls="dashboard-sidebar">☰ Show / Hide Categories</button>
+    <div class="service-search">
+      <span>🔍</span>
+      <input type="search" id="service-search-input"
+        placeholder="Search ALL services, products and stationery..."
+        aria-label="Search all services and products">
+    </div>
     <div id="dashboard-content" aria-live="polite"></div>
   </main>
 </section>
@@ -533,6 +581,7 @@ footer p { margin: 7px; }
   const content = document.getElementById("dashboard-content");
   const sidebar = document.getElementById("dashboard-sidebar");
   const menuToggle = document.getElementById("dashboard-menu-toggle");
+  const searchInput = document.getElementById("service-search-input");
   const categoryButtons = document.querySelectorAll(".dashboard-nav button");
 
   const categories = [
@@ -764,6 +813,81 @@ footer p { margin: 7px; }
     closeMobileMenu();
   }
 
+
+  function searchAllServices(query) {
+    const term = query.trim().toLowerCase();
+
+    if (!term) {
+      showOverview();
+      return;
+    }
+
+    setActiveButton("");
+    const results = [];
+
+    categories.forEach(function (category) {
+      category.services.forEach(function (service) {
+        const searchable = [
+          service[0],
+          service[1],
+          category.title
+        ].join(" ").toLowerCase();
+
+        if (searchable.includes(term)) {
+          results.push({ category: category, service: service });
+        }
+      });
+    });
+
+    if (results.length === 0) {
+      content.innerHTML = `
+        <h1 class="dashboard-heading">Search Results</h1>
+        <p class="dashboard-intro">No services found for "${escapeSearch(query)}". Try another word.</p>
+        <div class="search-empty">🔎 No matching services found. Please try another search.</div>
+      `;
+      closeMobileMenu();
+      return;
+    }
+
+    const cards = results.map(function (result) {
+      const category = result.category;
+      const service = result.service;
+      const priceMatch = service[1].match(/(KSh [0-9,]+(?: per [a-z]+)?|Price on enquiry)\./i);
+      const price = priceMatch ? priceMatch[1] : "";
+
+      return `
+        <article class="dashboard-service-card">
+          <span class="search-category">${category.icon} ${category.title}</span>
+          <h3>${service[0]}</h3>
+          <p>${service[1]}</p>
+          ${price ? `<span class="service-price">${price}</span>` : ""}
+          <a class="service-whatsapp"
+             href="${whatsappLink(service[0], category.title)}"
+             target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a>
+        </article>
+      `;
+    }).join("");
+
+    content.innerHTML = `
+      <h1 class="dashboard-heading">Search Results</h1>
+      <p class="dashboard-intro">${results.length} matching service(s) found across all categories.</p>
+      <div class="dashboard-service-list">${cards}</div>
+    `;
+    closeMobileMenu();
+  }
+
+  function escapeSearch(value) {
+    return value.replace(/[&<>"']/g, function (character) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[character];
+    });
+  }
+
   function closeMobileMenu() {
     if (window.innerWidth <= 800) {
       sidebar.classList.remove("open");
@@ -786,6 +910,10 @@ footer p { margin: 7px; }
 
       if (category) openCategory(category);
     });
+  });
+
+  searchInput.addEventListener("input", function () {
+    searchAllServices(searchInput.value);
   });
 
   menuToggle.addEventListener("click", function () {
