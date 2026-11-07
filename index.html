@@ -560,11 +560,11 @@ footer p { margin: 7px; }
       description: "Get help preparing education, scholarship, and career documents.",
       services: [
         ["School and College Applications", "Help preparing and submitting online education applications."],
-        ["Scholarship and Bursary Forms", "Assistance with online forms and document preparation."],
+        ["Scholarship and Bursary Forms", "Bursary application assistance. KSh 50 per application."],
         ["KUCCPS Assistance", "Help accessing KUCCPS information and application services."],
         ["TVET Applications", "Help with online TVET application processes."],
         ["Job Applications", "Assistance preparing documents for job applications."],
-        ["CV Typing", "Professional CV typing and formatting."],
+        ["CV Preparation", "CV preparation and formatting. KSh 300."],
         ["Application Letters", "Typing and formatting application letters."],
         ["Internship Applications", "Help preparing internship application documents."]
       ]
@@ -590,14 +590,15 @@ footer p { margin: 7px; }
       icon: "📄",
       description: "Prepare, copy, format, and organise your documents.",
       services: [
-        ["Document Typing", "Typing for general documents."],
+        ["Typing", "Document typing. KSh 100 per page."],
+        ["Printing", "Document printing. KSh 50 per page."],
+        ["PDF Conversion", "PDF conversion. KSh 50 per conversion."],
         ["Photocopying", "Photocopy service. KSh 30 per page."],
-        ["Document Scanning", "Ask us about scanning your documents."],
+        ["Document Scanning", "Document scanning. KSh 50 per page."],
+        ["Document Lamination", "Document lamination. KSh 100 per page."],
         ["PDF Assistance", "Help with basic PDF document tasks."],
         ["Document Editing", "Formatting and editing assistance."],
-        ["CV and Letter Formatting", "Make your documents neatly formatted."],
-        ["Official Letter Typing", "Typing official letters. KSh 50 per letter."],
-        ["Normal Typing", "Normal typing. KSh 20 per page."]
+        ["CV and Letter Formatting", "Make your documents neatly formatted."]
       ]
     },
     {
@@ -606,10 +607,11 @@ footer p { margin: 7px; }
       icon: "🎨",
       description: "Ask about design and digital document services.",
       services: [
-        ["Poster and Flyer Design", "Ask about creating a poster or flyer for your needs."],
-        ["Logo Design", "Ask about a logo design for your project or business."],
+        ["Website Development", "Website development. KSh 15,000."],
+        ["Poster and Flyer Design", "Ask about creating a poster or flyer. Price on enquiry."],
+        ["Logo Design", "Ask about a logo design. Price on enquiry."],
         ["Document Design", "Formatting and layout assistance for documents."],
-        ["Photo Editing", "Ask about editing your photos."],
+        ["Photo Editing", "Ask about editing your photos. Price on enquiry."],
         ["Digital Document Preparation", "Help preparing digital documents for use or printing."]
       ]
     },
@@ -631,15 +633,19 @@ footer p { margin: 7px; }
       id: "ict",
       title: "Printing, Photo & ICT",
       icon: "🖨️",
-      description: "Printing, internet, photography, and computer-related enquiries.",
+      description: "Printing, photography, internet, and computer-related services.",
       services: [
-        ["Black & White Printing", "Black and white document printing."],
-        ["Colour Printing", "Colour document printing."],
-        ["Double-Sided Printing", "Double-sided printing."],
-        ["Internet Browsing", "Ask us about internet access."],
-        ["Passport and ID Photos", "Enquire about passport or ID photo services."],
-        ["Photo Printing", "Ask about photo printing availability."],
-        ["Computer Troubleshooting", "Ask about help with computer problems."],
+        ["Black & White Printing", "Black and white printing. KSh 30 per page."],
+        ["Colour Printing", "Colour printing. KSh 50 per page."],
+        ["Photocopying", "Photocopy service. KSh 30 per page."],
+        ["Photo Printing", "Photo printing. KSh 200 per page."],
+        ["Passport-size Photos", "Passport-size photos. KSh 200 per page."],
+        ["ID Photos", "ID photos. KSh 200 per page."],
+        ["Document Scanning", "Document scanning. KSh 50 per page."],
+        ["Document Lamination", "Document lamination. KSh 100 per page."],
+        ["Document Binding", "Document binding. KSh 300 per book."],
+        ["Internet Browsing", "Internet browsing. KSh 200 per hour."],
+        ["Computer Troubleshooting", "Ask about computer troubleshooting. Price on enquiry."],
         ["Software and Windows Assistance", "Contact us to confirm the available computer service."],
         ["Data Transfer", "Enquire about transferring your files."],
         ["Basic Computer Lessons", "Ask about basic computer learning assistance."]
@@ -649,9 +655,25 @@ footer p { margin: 7px; }
       id: "stationery",
       title: "Stationery",
       icon: "📚",
-      description: "Contact us to ask which stationery items are currently available.",
+      description: "Browse stationery items and their prices.",
       services: [
-        ["Stationery Enquiry", "Ask about available stationery items, stock, and prices."]
+        ["Exercise Book (64 pages)", "KSh 20."],
+        ["Exercise Book (120 pages)", "KSh 40."],
+        ["Pen", "KSh 20."],
+        ["HB Pencil", "KSh 20."],
+        ["Normal Pencil", "KSh 10."],
+        ["30 cm Ruler", "KSh 50."],
+        ["Eraser", "KSh 10."],
+        ["File / Folder", "KSh 100 each."],
+        ["Small Envelope", "KSh 10."],
+        ["Medium Envelope", "KSh 20."],
+        ["Big Envelope", "KSh 50."],
+        ["Separate Mathematical Set", "KSh 200."],
+        ["Normal Mathematical Set", "KSh 100."],
+        ["Sharpener", "KSh 10."],
+        ["Glue", "Price on enquiry."],
+        ["Staplers", "Price on enquiry."],
+        ["Other Stationery", "Ask about availability and prices. Price on enquiry."]
       ]
     }
   ];
@@ -674,8 +696,8 @@ footer p { margin: 7px; }
     setActiveButton(category.id);
 
     const serviceCards = category.services.map(function (service) {
-      const priceMatch = service[1].match(/KSh [0-9,]+(?: per [a-z]+| per page| per letter)?\./);
-      const price = priceMatch ? priceMatch[0].replace(/\.$/, "") : "";
+      const priceMatch = service[1].match(/(KSh [0-9,]+(?: per [a-z]+)?|Price on enquiry)\./i);
+      const price = priceMatch ? priceMatch[1] : "";
 
       return `
         <article class="dashboard-service-card">
